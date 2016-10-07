@@ -1,0 +1,15 @@
+---
+title: "BibTex Practice"
+author: "Tori Dykes"
+date: "10/7/2016"
+output: html_document
+bibliography:
+    - bibtest.bib
+---
+
+According to @Cox1997
+
+[@Cox1997]
+
+
+  
