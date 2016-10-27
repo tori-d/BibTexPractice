@@ -1,0 +1,55 @@
+---
+title: "Assignment 2"
+author: "Tori Dykes and Mansi Wadhwa "
+date: "Friday, October 28, 2016"
+output: html_document
+---
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(stargazer)  # for regression tables
+library(ggplot2) # for plotting tables
+library(dplyr)
+```
+
+
+Introduction
+
+```{r}
+
+setwd("C:/Users/hp/Downloads")
+data <- read.csv("ESS1-6e01_1_F1.csv")
+
+```
+
+Data
+
+We will be using data from the European Social Survey (ESS) which is a cross-national survey undertaken across Europe every two years since 2001. Information about socio-economic conditions, attitudies, behvaiour patterns, perceptions of population cross-sections throughout different European countries is collected and collated. A major advantage of the ESS is that it is available free of charge after registration on the website. A large number of variables are available and the data can be sorted and filtered according to category, level of analysis etc. 
+
+In order to analyse the relationship between, youth unemployment and the political engagement of the youth, we make use of the variables that cover politics, political interest and participation. These variables capture multiple aspects of an individual's political participation and hence, are suitable for our analysis. 
+
+While variables measuring respondent's voting in the last election, pariticipation in a political party, campaign or demonstration etc. reflect the actual involvement of the respondents in the political process, other variables measure interest in politcs, ease of comprehending political issues and trust in political institutions. The latter give us an understanding of a different dimension of the citizenry's perception of political ideas. The ideological stance of the respondents is also measured through variables like placement on left-right scale, opinion on health services, education services, homosexuality,immigration, European unification etc. This further gives us more substantive data to add to our analysis
+
+Socio-demographic variables in the dataset employment status in a detailed way - capturing current status of employment, previous work, nature of employment, flexibility in employment, education levels etc. This gives us enough breadth to select relevant variables and carry out a specific yet well-directed analysis.
+
+
+
+
+We will be focussing out analysis on respondents between the age of 18 and 25 only. The data is subset accordingly.
+
+```{r}
+df <- subset(data, data$agea <= 25 & data$agea >= 18)
+```
+
+Checking number of observations for each country in each round of the survey.
+This counts the number of entries for DE in round 1 and round 2 of the survey.
+
+```{r}
+sum(with(df, cntry == "DE" & essround == 1))
+sum(with(df, cntry == "DE" & essround == 2))
+
+````
+
+
+
+
